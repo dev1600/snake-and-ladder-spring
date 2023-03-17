@@ -21,6 +21,7 @@ public class Game {
         this.snakes = snakes;
         this.ladders = ladders;
     }
+
     public String getId() {
         return id;
     }
@@ -60,5 +61,14 @@ public class Game {
     public void setLadders(Ladders ladders) {
         this.ladders = ladders;
     }
-
+    @Override
+    public String toString() {
+        return "Game{" +
+                "id='" + id + '\'' +
+                ", gameResult=" + gameResult +
+                ", noOfTurnsToFinish=" + noOfTurnsToFinish +
+                ", snakes=" + snakes +
+                ", ladders=" + ladders +
+                '}';
+    }
 }

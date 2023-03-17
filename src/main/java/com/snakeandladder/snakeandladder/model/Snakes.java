@@ -1,19 +1,28 @@
 package com.snakeandladder.snakeandladder.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.HashMap;
-
+import java.util.Map;
+@JsonDeserialize(using= com.snakeandladder.snakeandladder.deserializer.SnakesDeserializer.class)
 public class Snakes {
-    private HashMap<Integer,Integer> snakeCoordinates;
-    public Snakes(){}
-    public Snakes(HashMap<Integer, Integer> snakeCoordinates) {
+    private Map<Integer,Integer> snakeCoordinates;
+    public Snakes(){};
+    public Snakes(Map<Integer, Integer> snakeCoordinates) {
         this.snakeCoordinates = snakeCoordinates;
     }
 
-    public HashMap<Integer, Integer> getSnakeCoordinates() {
+    public Map<Integer, Integer> getSnakeCoordinates() {
         return snakeCoordinates;
     }
 
-    public void setSnakeCoordinates(HashMap<Integer, Integer> snakeCoordinates) {
+    public void setSnakeCoordinates(Map<Integer, Integer> snakeCoordinates) {
         this.snakeCoordinates = snakeCoordinates;
+    }
+
+    @Override
+    public String toString() {
+        return "Snakes{" +
+                "snakeCoordinates=" + snakeCoordinates +
+                '}';
     }
 }
