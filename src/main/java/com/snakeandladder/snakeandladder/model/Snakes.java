@@ -18,7 +18,10 @@ public class Snakes {
     public void setSnakeCoordinates(Map<Integer, Integer> snakeCoordinates) {
         this.snakeCoordinates = snakeCoordinates;
     }
-
+    public int checkForSnake(int pos){
+        if(snakeCoordinates.containsKey(pos)) return snakeCoordinates.get(pos);
+        return pos;
+    }
     @Override
     public String toString() {
         return "Snakes{" +

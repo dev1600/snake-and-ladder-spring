@@ -21,7 +21,10 @@ public class Ladders {
     public void setLadderCoordinates(Map<Integer, Integer> ladderCoordinates) {
         this.ladderCoordinates = ladderCoordinates;
     }
-
+    public int checkForLadder(int pos){
+        if(ladderCoordinates.containsKey(pos)) return ladderCoordinates.get(pos);
+        return pos;
+    }
     @Override
     public String toString() {
         return "Ladders{" +

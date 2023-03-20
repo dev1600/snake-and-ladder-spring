@@ -17,6 +17,7 @@ public class GameDetailsServiceImpl implements GameDetailsService {
     GameService gameService;
     @Override
     public Optional<Game> getGameDetailsByGameId(String id) {
+        if(gameService.getGameCache().containsKey(id)) return Optional.of(gameService.getGameCache().get(id));
         return gameRepository.findById(id);
     }
 
@@ -32,6 +33,7 @@ public class GameDetailsServiceImpl implements GameDetailsService {
 
     @Override
     public void saveGameDetails(Game game) {
+//        System.out.println(game);
         gameRepository.save(game);;
         gameService.getGameCache().put(game.getId(),game);
     }
