@@ -3,25 +3,26 @@ package com.snakeandladder.snakeandladder.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.annotation.processing.Generated;
-
 @Document(collection =  "game")
 public class Game {
     @Id
     private String id;
     private int gameResult;
-    private int noOfTurnsToFinish;
+    private int noOfTurns;
+    private int player1Position;
+    private int player2Position;
     private Snakes snakes;
     private Ladders ladders;
 
-    public Game(String id, int gameResult, int noOfTurnsToFinish, Snakes snakes, Ladders ladders) {
+    public Game(String id, int gameResult, int noOfTurns, int player1Position, int player2Position, Snakes snakes, Ladders ladders) {
         this.id = id;
         this.gameResult = gameResult;
-        this.noOfTurnsToFinish = noOfTurnsToFinish;
+        this.noOfTurns = noOfTurns;
+        this.player1Position = player1Position;
+        this.player2Position = player2Position;
         this.snakes = snakes;
         this.ladders = ladders;
     }
-
     public String getId() {
         return id;
     }
@@ -38,12 +39,28 @@ public class Game {
         this.gameResult = gameResult;
     }
 
-    public int getNoOfTurnsToFinish() {
-        return noOfTurnsToFinish;
+    public int getNoOfTurns() {
+        return noOfTurns;
     }
 
-    public void setNoOfTurnsToFinish(int noOfTurnsToFinish) {
-        this.noOfTurnsToFinish = noOfTurnsToFinish;
+    public void setNoOfTurns(int noOfTurns) {
+        this.noOfTurns = noOfTurns;
+    }
+
+    public int getPlayer1Position() {
+        return player1Position;
+    }
+
+    public void setPlayer1Position(int player1Position) {
+        this.player1Position = player1Position;
+    }
+
+    public int getPlayer2Position() {
+        return player2Position;
+    }
+
+    public void setPlayer2Position(int player2Position) {
+        this.player2Position = player2Position;
     }
 
     public Snakes getSnakes() {
@@ -61,14 +78,19 @@ public class Game {
     public void setLadders(Ladders ladders) {
         this.ladders = ladders;
     }
+
+
     @Override
     public String toString() {
         return "Game{" +
                 "id='" + id + '\'' +
                 ", gameResult=" + gameResult +
-                ", noOfTurnsToFinish=" + noOfTurnsToFinish +
+                ", noOfTurnsToFinish=" + noOfTurns +
+                ", player1Position=" + player1Position +
+                ", player2Position=" + player2Position +
                 ", snakes=" + snakes +
                 ", ladders=" + ladders +
                 '}';
     }
+
 }

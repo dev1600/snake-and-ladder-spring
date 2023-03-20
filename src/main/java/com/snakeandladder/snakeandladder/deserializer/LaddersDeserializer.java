@@ -20,7 +20,6 @@ public class LaddersDeserializer extends JsonDeserializer<Ladders> {
 
         Map<Integer,Integer> laddersMap=new HashMap<>();
         JsonNode laddersNode=node.get("ladderCoordinates");
-        System.out.println("Ladders =>"+laddersNode);
 
         if(laddersNode!=null){
             Iterator<Map.Entry<String,JsonNode>> iterator=laddersNode.fields();
